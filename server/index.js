@@ -18,13 +18,15 @@ app.get("/", async (req, res) => {
   });
 });
 
+// connect to db
 mongoose
   .connect(process.env.MONGO_URL)
-  .then(() => console.log("db connection successful"))
-  .catch((err) => {
-    console.log(err);
+  .then(() => {
+    // listen for requests
+    app.listen(process.env.PORT || 5000, () => {
+      console.log("ecommerce server is listening at port 5000");
+    });
+  })
+  .catch((error) => {
+    console.log(error);
   });
-
-app.listen(process.env.PORT || 5000, () => {
-  console.log("ecommerce server is listening at port 5000");
-});
