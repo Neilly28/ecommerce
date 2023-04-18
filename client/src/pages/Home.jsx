@@ -12,9 +12,9 @@ const Home = () => {
   const { products } = useContext(ProductContext);
 
   // get only mens and womens clothing category
-  const filteredProducts = products.filter(
-    (p) => p.category === "men's clothing" || p.category === "women's clothing"
-  );
+  // const filteredProducts = products.filter(
+  //   (p) => p.category === "men's clothing" || p.category === "women's clothing"
+  // );
 
   return (
     <div>
@@ -22,8 +22,8 @@ const Home = () => {
       <section className="py-16">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-7 max-w-sm mx-auto md:max-w-none md:mx-0">
-            {filteredProducts.map((product) => {
-              return <Product key={product.id} product={product} />;
+            {products.map((product) => {
+              return <Product key={product._id} product={product} />;
             })}
           </div>
         </div>

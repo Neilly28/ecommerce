@@ -9,7 +9,7 @@ const Product = ({ product }) => {
   const { addToCart } = useContext(CartContext);
 
   //   destucture product
-  const { id, image, category, title, price } = product;
+  const { _id, picture, category, name, price } = product;
 
   return (
     <div>
@@ -18,7 +18,7 @@ const Product = ({ product }) => {
           <div className="flex w-[200px] mx-auto justify-center items-center">
             <img
               className="max-h-[160px] group-hover:scale-110 transition duration-300"
-              src={image}
+              src={picture}
               alt=""
             />
           </div>
@@ -26,13 +26,13 @@ const Product = ({ product }) => {
         {/* buttons */}
         <div className="absolute top-6 -right-11 group-hover:right-5 bg-red-500 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
           <button
-            onClick={() => addToCart(id, product)}
+            onClick={() => addToCart(_id, product)}
             className="flex justify-center items-center text-white w-12 h-12"
           >
             <BsPlus className="text-3xl" />
           </button>
           <Link
-            to={`/product/${id}`}
+            to={`/product/${_id}`}
             className="w-12 h-12 bg-white flex justify-center items-center drop-shadow-xl"
           >
             <BsEyeFill />
@@ -41,8 +41,8 @@ const Product = ({ product }) => {
       </div>
       <div>
         <div className="text-sm capitalize text-gray-500 mb-1">{category}</div>
-        <Link to={`/product/${id}`}>
-          <h2 className="font-semibold mb-1">{title}</h2>
+        <Link to={`/product/${_id}`}>
+          <h2 className="font-semibold mb-1">{name}</h2>
         </Link>
         <div className="font-semibold">$ {price}</div>
       </div>

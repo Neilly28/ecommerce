@@ -7,10 +7,20 @@ const ProductProvider = ({ children }) => {
   // product state
   const [products, setProducts] = useState([]);
 
-  //   fetch products
+  //   fetch products from api
+  // useEffect(() => {
+  //   const fetchProducts = async () => {
+  //     const response = await fetch("https://fakestoreapi.com/products");
+  //     const data = await response.json();
+  //     setProducts(data);
+  //   };
+  //   fetchProducts();
+  // }, []);
+
+  //   fetch products from mongodb
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await fetch("https://fakestoreapi.com/products");
+      const response = await fetch("http://localhost:5000/api/products");
       const data = await response.json();
       setProducts(data);
     };
