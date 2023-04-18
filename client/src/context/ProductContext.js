@@ -21,7 +21,7 @@ const ProductProvider = ({ children }) => {
   useEffect(() => {
     const fetchProducts = async () => {
       const response = await fetch(
-        "https://ecommerce-hgsq.onrender.com/api/products"
+        "https://plain-flip-flops-deer.cyclic.app/api/products"
       );
       const data = await response.json();
       setProducts(data);
