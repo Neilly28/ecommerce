@@ -25,7 +25,7 @@ const ProductDetails = () => {
   }
 
   // destructure product
-  const { title, price, description, image } = product;
+  const { title, price, description, image, id: prodId } = product;
 
   console.log({ product });
 
@@ -43,7 +43,7 @@ const ProductDetails = () => {
             <div className="text-xl text-red-500 font-medium mb-6">{price}</div>
             <p className="mb-8">{description}</p>
             <button
-              onClick={() => addToCart(id, product)}
+              onClick={() => addToCart(prodId, product)}
               className="bg-black py-4 px-8 text-white"
             >
               Add to cart
