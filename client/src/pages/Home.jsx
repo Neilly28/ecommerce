@@ -7,9 +7,11 @@ import { ProductContext } from "../context/ProductContext";
 import Product from "../components/Product";
 import Hero from "../components/Hero";
 
+import { BeatLoader } from "react-spinners";
+
 const Home = () => {
   // get products from product context
-  const { products } = useContext(ProductContext);
+  const { products, isPending } = useContext(ProductContext);
 
   // get only mens and womens clothing category
   // const filteredProducts = products.filter(
@@ -27,6 +29,14 @@ const Home = () => {
             })}
           </div>
         </div>
+        {isPending && (
+          <div className="flex items-center justify-center h-screen">
+            <h1 className="font-bold text-xl mr-3">
+              Hang tight! Fetching data...{" "}
+            </h1>
+            <BeatLoader color="black" loading={isPending} size={25} />
+          </div>
+        )}
       </section>
     </div>
   );

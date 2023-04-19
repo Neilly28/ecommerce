@@ -6,6 +6,8 @@ export const ProductContext = createContext();
 const ProductProvider = ({ children }) => {
   // product state
   const [products, setProducts] = useState([]);
+  const [isPending, setIsPending] = useState(false);
+  const [error, setError] = useState(null);
 
   //   fetch products from api
   // useEffect(() => {
@@ -20,17 +22,24 @@ const ProductProvider = ({ children }) => {
   //   fetch products from mongodb
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await fetch(
-        "https://plain-flip-flops-deer.cyclic.app/api/products"
-      );
-      const data = await response.json();
-      setProducts(data);
+      setIsPending(true);
+      try {
+        const response = await fetch(
+          "https://plain-flip-flops-deer.cyclic.app/api/products"
+        );
+        const data = await response.json();
+        setProducts(data);
+        setIsPending(false);
+      } catch (error) {
+        setIsPending(false);
+        setError(error.message);
+      }
     };
     fetchProducts();
   }, []);
 
   return (
-    <ProductContext.Provider value={{ products }}>
+    <ProductContext.Provider value={{ products, isPending, error }}>
       {children}
     </ProductContext.Provider>
   );

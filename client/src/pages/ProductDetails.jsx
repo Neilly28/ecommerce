@@ -2,32 +2,37 @@ import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import { ProductContext } from "../context/ProductContext";
+import { BeatLoader } from "react-spinners";
+import NotFound from "./NotFound";
 
 const ProductDetails = () => {
   // get the product id from the url
   const { id } = useParams();
-  console.log({ id });
 
   // useContext
-  const { products } = useContext(ProductContext);
+  const { products, isPending, error } = useContext(ProductContext);
   const { addToCart } = useContext(CartContext);
 
   // get the single product based on the id
   const product = products.find((item) => item._id == id);
 
   // if there is no product
-  if (!product) {
+  if (isPending || error) {
     return (
-      <section className="h-screen flex justify-center items-center">
-        Oops! Something went wrong :(
-      </section>
+      <div className="flex items-center justify-center h-screen">
+        <h1 className="font-bold text-xl mr-3">Hang tight! Fetching data...</h1>
+        <BeatLoader color="black" loading={isPending} size={25} />
+      </div>
     );
+  }
+
+  // if there is no product
+  if (!product) {
+    return <NotFound />;
   }
 
   // destructure product
   const { name, price, description, picture, _id } = product;
-
-  console.log({ product });
 
   return (
     <section className="bg-white pt-44">
