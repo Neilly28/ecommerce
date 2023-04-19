@@ -6,11 +6,10 @@ import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <section className="bg-black h-[800px] bg-her bg-no-repeat bg-cover bg-center py-24">
-      <div className="container mx-auto flex justify-around h-full">
-        <div className="flex flex-col justify-center text-white">
-          <div className="font-semibold flex items-center uppercase"></div>
-          <h1 className="text-[70px] leading-[1.1] font-light mb-4 ">
+    <section className="bg-black bg-no-repeat bg-cover bg-center py-24 pt-40">
+      <div className="container mx-auto flex flex-col md:flex-row justify-around h-full">
+        <div className="p-12 sm:p-0 flex flex-col justify-center text-white">
+          <h1 className="text-[44px] lg:text-[70px] leading-[1.1] font-light mb-4 ">
             INTRODUCING <br />
             <span className="font-semibold">THE NEW IPHONE</span>
           </h1>
@@ -21,7 +20,7 @@ const Hero = () => {
             Learn More
           </Link>
         </div>
-        <div className="hidden lg:block">
+        <div className="lg:block">
           <img className="max-w-sm" src={Iphone} alt="" />
         </div>
       </div>

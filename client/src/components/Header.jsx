@@ -28,11 +28,11 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed w-full z-10 transition-all ${
+      className={`p-12 fixed w-full z-10 transition-all ${
         isHomePage
           ? isActive
             ? "bg-white py-4 shadow-md text-black"
-            : "bg-none py-6 text-white"
+            : "bg-black py-6 text-white"
           : isActive
           ? "bg-white py-4 shadow-md"
           : "bg-none py-6"
