@@ -13,7 +13,7 @@ const Product = ({ product }) => {
 
   return (
     <div>
-      <div className="border border-gray-200 h-72 mb-4 relative overflow-hidden group transition">
+      <div className="h-72 shadow-md mb-4 relative overflow-hidden group transition">
         <div className="w-full h-full flex justify-center items-center">
           <div className="flex w-[200px] mx-auto justify-center items-center">
             <img

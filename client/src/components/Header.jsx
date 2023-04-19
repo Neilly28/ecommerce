@@ -8,9 +8,12 @@ import { BsBag } from "react-icons/bs";
 
 // import cart context
 import { CartContext } from "../context/CartContext";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
+
   // header state
   const [isActive, setIsActive] = useState(false);
   const { isOpen, setIsOpen } = useContext(SidebarContext);
@@ -25,14 +28,20 @@ const Header = () => {
 
   return (
     <header
-      className={`${
-        isActive ? "bg-white py-4 shadow-md" : "bg-none py-6"
-      } fixed w-full z-10 transition-all`}
+      className={`fixed w-full z-10 transition-all ${
+        isHomePage
+          ? isActive
+            ? "bg-white py-4 shadow-md text-black"
+            : "bg-none py-6 text-white"
+          : isActive
+          ? "bg-white py-4 shadow-md"
+          : "bg-none py-6"
+      }`}
     >
       <div className="container mx-auto flex items-center justify-between h-full">
         <Link to="/">
           <div>
-            <h1>SPRING</h1>
+            <h1 className="text-xl">digi.shop</h1>
           </div>
         </Link>
         <div
