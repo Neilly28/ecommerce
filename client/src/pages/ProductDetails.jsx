@@ -30,7 +30,7 @@ const ProductDetails = () => {
   console.log({ product });
 
   return (
-    <section className="bg-white pt-32 pb-12 lg:py-32 h-screen mt-44">
+    <section className="bg-white pt-44">
       <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row items-center">
           <div className="flex flex-1 justify-center items-center mb-8 lg:mb-0">
@@ -43,7 +43,7 @@ const ProductDetails = () => {
             <div className="text-xl text-red-500 font-medium mb-6">
               $ {price}
             </div>
-            <p className="mb-8 px-12">{description}</p>
+            <p className="mb-8 px-12 md:px-0">{description}</p>
             <button
               onClick={() => addToCart(_id, product)}
               className="bg-black py-4 px-8 text-white"
