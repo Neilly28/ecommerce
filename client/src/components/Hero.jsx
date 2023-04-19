@@ -1,7 +1,5 @@
 import React from "react";
-import WomanImg from "../img/woman_hero.png";
-import Woman from "../img/woman.jpg";
-import Iphone from "../img/hd.png";
+import Iphone from "../img/iphone.png";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
